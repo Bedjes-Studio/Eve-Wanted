@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const userSchema = mongoose.Schema({
     character_id: { type: Number, required: true },
@@ -7,6 +7,10 @@ const userSchema = mongoose.Schema({
     corporation_id: { type: Number },
     token: { type: String },
     refresh_token: { type: Number },
+    hunters: { type: [Number], required: true },
+    bounty: { type: Number, required: true },
+    maxBounty: { type: Number, required: true },
+    reward: { type: Number, required: true },
 });
 
-module.exports = mongoose.model('User', userSchema);
+module.exports = mongoose.model("User", userSchema);
