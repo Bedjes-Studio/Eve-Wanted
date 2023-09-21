@@ -1,3 +1,7 @@
+const { errorHandler } = require("./utils");
+
+const Reward = require("../models/reward");
+
 /**
  * Check completed rewards
  */
@@ -9,12 +13,28 @@ exports.checkRewards = (req, res, next) => {
 };
 
 /**
- * Check a reward
+ * Return last rewards
+ */
+
+exports.lastRewards = (req, res, next) => {
+    Reward.find()
+        .sort({ date: -1 })
+        .limit(5)
+        .then((lastRewards) => {
+            res.status(200).json({ lastRewards });
+        })
+        .catch((error) => {
+            errorHandler(error, res);
+        });
+};
+
+/**
+ * Create a reward
  */
 
 const createReward = (hunter, target, amount, killmailId) => {
     return new Promise(function (resolve, reject) {
-        const bounty = new Bounty({
+        const reward = new Reward({
             hunter,
             target,
             amount,
@@ -22,6 +42,6 @@ const createReward = (hunter, target, amount, killmailId) => {
             date: Date.now(),
         });
 
-        bounty.save().then(resolve).catch(reject);
+        reward.save().then(resolve).catch(reject);
     });
 };
