@@ -3,6 +3,7 @@ const config = require("../config");
 const { userfiller } = require("./user");
 const { dropTables } = require("./utils");
 
+mongoose.set("strictQuery", true);
 mongoose
     .connect(config.mongodb.host + ":" + config.mongodb.port + "/" + config.mongodb.name, {
         useNewUrlParser: true,
