@@ -1,5 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const cookieParser = require("cookie-parser");
+
 const config = require("./config");
 
 const frontRoutes = require("./routes/front");
