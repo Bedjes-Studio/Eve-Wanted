@@ -1,12 +1,10 @@
 const express = require("express");
 const router = express.Router();
 
-const ssoCtrl = require('../controllers/sso');
+const ssoCtrl = require("../controllers/sso");
 
 router.get("/", (req, res, next) => {
-    res.status(200).json({
-        message: "TODO : Home page",
-    });
+    res.render("page/index");
 });
 
 router.get("/login", (req, res, next) => {
