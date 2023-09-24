@@ -6,6 +6,10 @@ const dev = {
     server: {
         port: parseInt(process.env.DEV_SERVER_PORT) || 8080,
     },
+    application: {
+        id: process.env.DEV_APPLICATION_ID,
+        key: process.env.DEV_APPLICATION_KEY,
+    },
     mongodb: {
         host: process.env.DEV_MONGODB_HOST || "mongodb://127.0.0.1",
         port: parseInt(process.env.DEV_MONGODB_PORT) || 27017,
@@ -16,6 +20,10 @@ const dev = {
 const prod = {
     server: {
         port: parseInt(process.env.PROD_SERVER_PORT),
+    },
+    application: {
+        id: process.env.PROD_APPLICATION_ID,
+        key: process.env.PROD_APPLICATION_KEY,
     },
     mongodb: {
         host: process.env.PROD_MONGODB_HOST,
