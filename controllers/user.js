@@ -1,4 +1,4 @@
-const { errorHandler } = require("./utils");
+const { errorHandler, apiCall, apiResponseParser } = require("./utils");
 
 const User = require("../models/user");
 
@@ -41,4 +41,57 @@ exports.userHistory = (req, res, next) => {
         .catch((error) => {
             errorHandler(error, res);
         });
+};
+
+exports.registerUser = (characterId, token, refresh_token) => {
+    return new Promise(function (resolve, reject) {
+        // api request to get data
+
+        getUserData(characterId)
+            .then((userData) => {
+                const newUser = new User({
+                    characterId,
+                    name: userData.name,
+                    birthday: userData.birthday,
+                    corporationId: userData.corporation_id,
+                    token: token,
+                    refreshToken: refresh_token,
+                    hunters: [],
+                    bounty: 0,
+                    maxBounty: 0,
+                    reward: 0,
+                });
+                newUser.save().then(resolve);
+            })
+            .catch(reject);
+    });
+};
+
+function getUserData(characterId) {
+    return new Promise(function (resolve, reject) {
+        let characterDataEndpoint = "https://esi.evetech.net/latest/characters/" + characterId;
+        let headers = {
+            Accept: "application/json, text/plain, */*",
+            "Content-Type": "application/json",
+        };
+        let body = {
+            datasource: "tranquility",
+        };
+
+        apiCall(characterDataEndpoint, "POST", headers, body)
+            .then(apiResponseParser)
+            .then((response) => {
+                if (response.statusCode != 200) {
+                    reject();
+                }
+                resolve();
+            })
+            .catch(reject);
+    });
+}
+
+exports.updateUserTokens = (characterId, token, refreshToken) => {
+    return new Promise(function (resolve, reject) {
+        User.updateOne({ characterId }, { token, refreshToken }).then(resolve).catch(reject);
+    });
 };
