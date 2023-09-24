@@ -5,6 +5,7 @@ let env = process.env.NODE_ENV.trim();
 const dev = {
     server: {
         port: parseInt(process.env.DEV_SERVER_PORT) || 8080,
+        key: process.env.DEV_SERVER_KEY,
     },
     application: {
         id: process.env.DEV_APPLICATION_ID,
@@ -20,6 +21,7 @@ const dev = {
 const prod = {
     server: {
         port: parseInt(process.env.PROD_SERVER_PORT),
+        key: process.env.PROD_SERVER_KEY,
     },
     application: {
         id: process.env.PROD_APPLICATION_ID,
