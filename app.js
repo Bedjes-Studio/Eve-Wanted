@@ -7,6 +7,7 @@ const apiRoutes = require("./routes/api");
 
 const app = express();
 app.use(express.json());
+app.use(cookieParser())
 app.set("view engine", "ejs");
 
 mongoose.set("strictQuery", true);
