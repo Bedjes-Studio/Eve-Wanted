@@ -1,17 +1,42 @@
+const jwtDecode = require("jwt-decode");
+
 const { errorHandler, apiCall, apiResponseParser } = require("./utils");
+const { registerUser, updateUserTokens } = require("./user");
 const config = require("../config");
+const User = require("../models/user");
 
 exports.ssoCallback = (req, res, next) => {
     // TODO : validate state
+    // TODO : validate token signature
     getToken(req.query.code)
         .then((token, refreshToken) => {
-            res.status(200).json({ messsage: "callback", token: token, refreshToken: refreshToken });
+            let decodedToken = jwtDecode(token);
+            let characterId = decodedToken.sub.split(":")[2];
+            console.log(decodedToken);
+
+            User.find({ characterId }).then((registredUser) => {
+                console.log(registredUser);
+
+                if (registredUser.length == 0) {
+                    registerUser(characterId, token, refreshToken).then(() => {
+                        // TODO : Redirect to main page
+                        // TODO : create cookie for further auth
+                        console.log("new user registred !");
+                        res.status(200).json({ messsage: "callback", token: token, refreshToken: refreshToken });
+                    });
+                } else {
+                    updateUserTokens(characterId, token, refreshToken).then(() => {
+                        // TODO : create cookie for further auth
+                        res.status(201).json({
+                            message: "User token updated successfully!",
+                        });
+                    });
+                }
+            });
         })
         .catch((error) => {
             errorHandler(error, res);
         });
-
-    // read data from the token
 };
 
 const getToken = (code) => {
