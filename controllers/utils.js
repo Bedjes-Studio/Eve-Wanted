@@ -1,10 +1,7 @@
-function computeRequest(method, body) {
+function computeRequest(method, headers, body) {
     const request = {
-        method: method,
-        headers: {
-            Accept: "application/json, text/plain, */*",
-            "Content-Type": "application/json",
-        },
+        method,
+        headers,
     };
     if (body != undefined) {
         request.body = body;
@@ -12,9 +9,9 @@ function computeRequest(method, body) {
     return request;
 }
 
-const apiCall = (endPoint, method, body) => {
+exports.apiCall = (endPoint, method, headers, body) => {
     return new Promise(function (resolve, reject) {
-        fetch(endPoint, computeRequest(method, body))
+        fetch(endPoint, computeRequest(method, headers, body))
             .then((response) => {
                 resolve(response);
             })
@@ -24,7 +21,7 @@ const apiCall = (endPoint, method, body) => {
     });
 };
 
-const apiResponseParser = (response) => {
+exports.apiResponseParser = (response) => {
     return new Promise(function (resolve, reject) {
         response
             .json()
