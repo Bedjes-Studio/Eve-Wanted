@@ -6,7 +6,7 @@ const dev = {
     server: {
         port: parseInt(process.env.DEV_SERVER_PORT) || 8080,
         key: process.env.DEV_SERVER_KEY,
-        cookieDuration: process.env.DEV_SERVER_COOKIE_DURATION,
+        cookieDuration: process.env.DEV_SERVER_COOKIE_DURATION || "24h",
     },
     application: {
         id: process.env.DEV_APPLICATION_ID,
