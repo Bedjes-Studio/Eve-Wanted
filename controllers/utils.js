@@ -8,7 +8,7 @@ function computeRequest(method, headers, body) {
     }
     return request;
 }
-
+// TODO : add User-Agent header for CCP (https://docs.esi.evetech.net/docs/guidelines.html)
 exports.apiCall = (endPoint, method, headers, body) => {
     return new Promise(function (resolve, reject) {
         fetch(endPoint, computeRequest(method, headers, body))
