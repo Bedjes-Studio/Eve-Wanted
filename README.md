@@ -49,3 +49,8 @@ Settings are :
 -   `[ENVIRONMENT]_MONGODB_HOST` : Host for the mongodb instance (default `'mongodb://127.0.0.1'`)
 -   `[ENVIRONMENT]_MONGODB_PORT` : Port for the mongodb instance (default `27017`)
 -   `[ENVIRONMENT]_MONGODB_NAME` : Database name for mongodb (default `dev`)
+
+
+# Credits
+
+https://pixabay.com/fr/photos/univers-terre-plan%C3%A8te-espace-1784292/
