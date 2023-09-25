@@ -24,7 +24,7 @@ export const apiCall = (endPoint, method, body) => {
     });
 };
 
-const apiResponseParser = (response) => {
+export const apiResponseParser = (response) => {
     return new Promise(function (resolve, reject) {
         response
             .json()

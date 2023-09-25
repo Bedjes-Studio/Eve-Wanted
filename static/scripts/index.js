@@ -1,6 +1,7 @@
 import "./lib/jquery-3.7.1.min.js";
+import { apiCall, apiResponseParser } from "./api.js";
 
-const topWanted = [
+const mostWanted = [
     { character_id: 2119210388, name: "Bedjes", bounty: 10000 },
     { character_id: 2119210388, name: "Bedjes", bounty: 10000 },
     { character_id: 2119210388, name: "Bedjes", bounty: 10000 },
@@ -8,9 +9,9 @@ const topWanted = [
     { character_id: 2119210388, name: "Bedjes", bounty: 10000 },
 ];
 
-function updateData(topWanted) {
+function updateData(mostWanted) {
     for (let i = 0; i < 5; ++i) {
-        let target = topWanted[i];
+        let target = mostWanted[i];
         let wantedItem = $("#wanted-item-" + i);
         wantedItem
             .children()
@@ -24,4 +25,10 @@ function updateData(topWanted) {
     }
 }
 
-updateData(topWanted);
+// updateData(mostWanted);
+let mostWantedEndpoint = "/api/mostWanted";
+apiCall(mostWantedEndpoint, "GET")
+    .then(apiResponseParser)
+    .then((data) => {
+        updateData(data.mostWanted);
+    });

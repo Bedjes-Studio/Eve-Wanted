@@ -18,7 +18,10 @@ exports.mostWanted = (req, res, next) => {
     User.find()
         .sort({ bounty: -1 })
         .limit(5)
-        .then((mostWanted) => {
+        .then((users) => {
+            let mostWanted = users.map((user) => {
+                return { characterId: user.characterId, name: user.name, bounty: user.bounty };
+            });
             res.status(200).json({ mostWanted });
         })
         .catch((error) => {
