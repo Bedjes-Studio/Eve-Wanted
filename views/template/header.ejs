@@ -3,7 +3,7 @@
     <div class="container-fluid">
 
         <a class="navbar-brand d-flex" href="/">
-            <img src="https://images.evetech.net/corporations/98750565/logo" alt="EVE-Wanted logo" width="50" height="50" />
+            <img src="/static/images/eve_wanted_logo.png" alt="EVE-Wanted logo" width="50" height="50" />
             <p class="ms-2 my-auto">EVE-Wanted</p>
         </a>
 
@@ -12,9 +12,18 @@
         </button>
         <div class="navbar-collapse collapse justify-content-end align-items-center" id="collapse">
 
-                <ul class="navbar-nav text-end">
+            <ul class="navbar-nav text-end">
+                <li class="nav-item btn-nav">
+                    <a href="/bounties" class="nav-link">Bounties</a>
+                </li>
+                <li class="nav-item btn-nav">
+                    <a href="/rewards" class="nav-link">Rewards</a>
+                </li>
+                <li class="nav-item btn-nav">
+                    <a href="#create-bounty" class="nav-link">Create a bounty</a>
+                </li>
                 <li class="nav-item">
-                    <p class="btn-username mb-0 nav-link">Veuillez vous connecter</p>
+                    <a id="loginButton" href="#"><img src="/static/images/login_button.png" alt="EVE-Wanted logo" /></a>
                 </li>
             </ul>
         </div>

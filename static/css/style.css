@@ -1,0 +1,52 @@
+/*
+ * FONTS
+ */
+
+@font-face {
+    font-family: "Montserrat";
+    src: url("../font/Montserrat/Montserrat-Regular.ttf");
+}
+
+@font-face {
+    font-family: "RobotoMono";
+    src: url("../font/Roboto_Mono/RobotoMono-Regular.ttf");
+}
+
+/*
+ * GLOBAL
+ */
+
+:root {
+    --main_font: "Montserrat";
+    --secondary_font: "RobotoMono";
+    --light-gray: #a7a0ac;
+    --dark-gray: #36444b;
+}
+
+body {
+    background-image: url("/static/images/background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    font-family: var(--main_font);
+    padding: 10px;
+}
+
+/* 
+* Nav header 
+*/
+
+#main-navbar {
+    background-color: var(--light-gray);
+    border-radius: 20px;
+}
+
+.btn-nav {
+    margin: auto 5px;
+    background-color: var(--dark-gray);
+    border-radius: 0.25rem;
+}
+
+#loginButton {
+    margin: auto 5px;
+}
