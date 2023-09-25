@@ -23,6 +23,7 @@ const prod = {
     server: {
         port: parseInt(process.env.PROD_SERVER_PORT),
         key: process.env.PROD_SERVER_KEY,
+        cookieDuration: process.env.PROD_SERVER_COOKIE_DURATION,
     },
     application: {
         id: process.env.PROD_APPLICATION_ID,
