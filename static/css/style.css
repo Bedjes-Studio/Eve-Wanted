@@ -50,3 +50,39 @@ body {
 #loginButton {
     margin: auto 5px;
 }
+
+/* Section template */
+
+.section {
+    margin-top: 30px;
+    color: white;
+}
+
+.section-title {
+    background-color: var(--light-gray);
+    padding: 10px;
+    border-radius: 20px 20px 0 0;
+    color: white;
+    margin-bottom: 0;
+    text-align: center;
+}
+.section-content {
+    background-color: var(--dark-gray);
+    padding: 10px;
+    border-radius: 0 0 20px 20px;
+}
+
+/* Wanted section */
+
+#wanted-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+
+}
+
+.wanted-item {
+    background-color: var(--light-gray);
+    text-align: center;
+}

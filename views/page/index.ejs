@@ -10,7 +10,20 @@
     <header>
         <%- include('../template/header'); %>
     </header>
-    <p>This is index page</p>
+
+    <div class="section">
+        <h1 class="section-title">TOP WANTED</h1>
+        <div class="section-content">
+            <div id="wanted-list">
+                <% for(let i = 0; i <5; ++i) {%>
+                <%- include('../template/wantedItem', {i}); %>
+                <% } %>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="/static/scripts/index.js"></script>
+
 </body>
 
 </html>
