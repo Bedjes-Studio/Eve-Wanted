@@ -1,4 +1,4 @@
-import "./jquery-3.7.1.min.js";
+import "./lib/jquery-3.7.1.min.js";
 import { EVE_WANTED_ID, LOGIN_URL, LOGIN_RESPONSE_TYPE, LOGIN_REDIRECT_URI, LOGIN_SCOPE } from "./const.js";
 
 function computeLoginURI() {
