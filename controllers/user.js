@@ -6,7 +6,10 @@ exports.bestHunters = (req, res, next) => {
     User.find()
         .sort({ reward: -1 })
         .limit(5)
-        .then((bestHunters) => {
+        .then((users) => {
+            let bestHunters = users.map((user) => {
+                return { characterId: user.characterId, name: user.name, reward: user.reward };
+            });
             res.status(200).json({ bestHunters });
         })
         .catch((error) => {
