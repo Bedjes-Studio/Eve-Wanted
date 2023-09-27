@@ -22,6 +22,17 @@
         </div>
     </div>
 
+    <div class="section">
+        <h1 class="section-title">BEST HUNTERS</h1>
+        <div class="section-content">
+            <div id="hunter-list">
+                <% for(let i = 0; i <5; ++i) {%>
+                <%- include('../template/hunterItem', {i}); %>
+                <% } %>
+            </div>
+        </div>
+    </div>
+
     <script type="module" src="/static/scripts/index.js"></script>
 
 </body>
