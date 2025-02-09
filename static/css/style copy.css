@@ -1,0 +1,274 @@
+/*
+ * FONTS
+ */
+
+@font-face {
+    font-family: "Montserrat";
+    src: url("../font/Montserrat/Montserrat-Regular.ttf");
+}
+
+@font-face {
+    font-family: "RobotoMono";
+    src: url("../font/Roboto_Mono/RobotoMono-Regular.ttf");
+}
+
+/*
+ * GLOBAL
+ */
+
+:root {
+    --main_font: "Montserrat";
+    --secondary_font: "RobotoMono";
+
+    --teal: #4acbd6;
+    --yellow: #f5bf43;
+    --navy-blue: #250d71;
+    --maroon: #c11466;
+    --dark-green: #005564;
+    --cyan-blue: #00b7de;
+    --dark-gray: #36444b;
+    --light-gray: #a7a0ac;
+    --ultra-light-gray: #dfd8e5;
+}
+
+body {
+    background-image: url("/static/images/background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+
+    font-family: var(--main_font);
+    padding: 10px;
+}
+
+footer {
+    background-color: var(--dark-green);
+    color: var(--light-gray);
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 20px;
+}
+
+/* Section template */
+
+.section {
+    margin-top: 30px;
+    color: white;
+}
+
+.section-title {
+    background-color: var(--dark-green);
+    color: white;
+    margin-bottom: 0;
+    text-align: center;
+    padding: 10px;
+    border-radius: 20px 20px 0 0;
+}
+.section-content {
+    background-color: var(--teal);
+    padding: 10px;
+    border-radius: 0 0 20px 20px;
+}
+
+#client-section {
+    display: flex;
+}
+
+#port-section {
+    display: flex;
+}
+
+.client-column {
+    padding: 10px;
+    flex-basis: 50%;
+    flex-grow: 0;
+    text-align: center;
+}
+
+.client-row {
+    display: flex;
+    width: 100%;
+}
+
+.client-row-adress {
+    background-color: white;
+    flex-grow: 1;
+    color: black;
+    margin: 0;
+}
+
+.port-row-number {
+    background-color: white;
+    flex-grow: 1;
+    color: black;
+    margin: 0;
+}
+
+.alert-row-type {
+    background-color: white;
+    flex-grow: 1;
+    color: black;
+    margin: 0;
+}
+
+.alert-row-description {
+    background-color: white;
+    flex-grow: 1;
+    color: black;
+    margin: 0;
+}
+
+.alert-row-date {
+    background-color: white;
+    flex-grow: 1;
+    color: black;
+    margin: 0;
+}
+
+.client-row-button-delete-whitelist {
+    padding-top: 0px;
+    height: 25px;
+}
+
+.alert-row-button-delete {
+    padding-top: 0px;
+    height: 25px;
+}
+
+.client-row-button-to-whitelist {
+    padding-top: 0px;
+    height: 25px;
+}
+
+.client-row-button-remove-connection {
+    padding-top: 0px;
+    height: 25px;
+}
+
+.port-row-button-delete-whitelist {
+    padding-top: 0px;
+    height: 25px;
+}
+
+.port-row-button-remove-connection {
+    padding-top: 0px;
+    height: 25px;
+}
+
+.port-row-button-to-whitelist {
+    padding-top: 0px;
+    height: 25px;
+}
+
+/* Nav header */
+
+#main-navbar {
+    background-color: var(--teal);
+    border-radius: 20px;
+}
+
+.btn-username {
+    background-color: var(--yellow);
+    border-radius: 0.25rem;
+}
+
+.btn-tplm {
+    background-color: var(--yellow);
+}
+
+.btn-nav {
+    max-width: 120px;
+    margin: 5px 0px 5px auto;
+}
+
+/* Monitor page */
+
+#consumptionChart {
+    background-color: white;
+}
+
+/* Index page */
+
+.img-overlay {
+    margin-top: 30px;
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+.img-cover {
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+}
+
+.overlay {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-radius: 20px;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.btn-overlay {
+    background-color: #71d7b4;
+}
+
+/* Challenge page */
+
+.challenge-intro-text {
+    margin-top: 10px;
+    margin-left: 10px;
+    text-align: center;
+}
+
+.challenge-box {
+    background-color: #4e8672;
+    text-align: center;
+    border-radius: 20px;
+    color: white;
+}
+
+.challenge-box-selected {
+    background-color: #71d7b4 !important;
+}
+
+.challenge-box-completed {
+    /* background-color: #16a858 !important; */
+    background-color: #3a9d67 !important;
+}
+
+.challenge-box:hover {
+    background-color: #71d7b4;
+    color: white;
+}
+
+.hint-blox {
+    background-color: #4e8672;
+    text-align: left !important;
+    border-radius: 20px;
+}
+
+/*
+* analyser
+*/
+
+.analyser-type {
+    background-color: var(--dark-green);
+    padding: 10px;
+    margin-bottom: 0;
+    border-radius: 5px;
+}
+
+.analyser-status {
+    padding: 10px;
+    margin-bottom: 0;
+    border-radius: 5px;
+}
