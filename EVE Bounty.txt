@@ -1,0 +1,58 @@
+EVE Bounty
+
+- Un joueur peut placer une bounty sur un autre joueur ou une corporation
+- Les raisons sont les suivantes : victime de destruction, ancien de corporation (non NPC) VS n'importe qui !
+- Le montant de la bounty = perte vaisseau + /!\ valeur dedans /!\ + equipement +  (prix Jita) - assurance platine + prix assurance platine
+- montant prime illimité
+- tout le monde peut ajouter une prime sur qq
+- mise a jour des primes toutes les 5 minutes
+- 1% de fees pour moi => redirection sur wallet 2
+- patreon
+- remboursement possible ?
+
+# Failles possibles
+- tué par un alt => prix bounty moins cher que la perte
+- triche sur l'estimation sur stuff détruit => prix Jita lissés sur 1 journée > assurance
+- triche sur la valeur dedans => prix jita mais jita a pas forcément les meilleurs prix => dans ce cas vends à Jita c'est mieux en fait
+- triche que la moitié du stuff dedans est récupéré => voir killboard
+- bounty trop gros/fréquente sur un joueur => max 100M lissés sur 30 jours ? => possibilité de se contrer soi meme pour plus avoir de bounty
+- bounty sur un joueur trop jeune => impossible avant 2 mois de jeux
+- validation d'un très vieux bounty
+
+# API EVE
+- recupération du prix de l'assurance et le remboursement lié => public
+- récupération du killmail si autorisé (le chasseur doit autoriser pour récup la prime), vérification de l'agresseur + des items tombés => a autoriser
+- récupération des ordres pour mettre a jours les contrats (lis le journal de la corp, description = nom du joueur)
+
+# Sections
+- top chasseurs => check max bounty - ok
+- top wanted => check max reward - ok
+- nouvelles primes => check last bounty - ok
+- nouvellesreward complétées => check last reward - ok
+- mes primes données/reçus => check all bounty/reward related
+- voir qui a mis une prime sur qui/quoi => recherche par nom
+- explication du fonctionnement
+
+
+Rate Limits
+
+Rate Limit: 30 requests per second
+Error Rate Limit - Max Exceptions: 300 exceptions
+Error Rate Limit - Exception Interval: 3 minutes
+Error Rate Limit - Block For: 15 minutes
+Need More Rate Limit: Contact CCP with a support ticket if you think you need to be white listed
+
+# Sénarios
+
+https://forums.eveonline.com/t/how-to-reintroduce-player-bounties/369202
+
+# Outils
+- site web
+- discord
+- corporation ok
+
+
+# login
+- connection sso
+- token et refresh en db
+- cookie signée chez user avec dedans le character id
